@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainManager : MonoBehaviour
 {
+    public static MainManager Instance;
+
     public Brick BrickPrefab;
     public int LineCount = 6;
     public Rigidbody Ball;
 
+    public TMP_Text BestScoreText;
     public Text ScoreText;
     public GameObject GameOverText;
     
@@ -70,6 +74,7 @@ public class MainManager : MonoBehaviour
 
     public void GameOver()
     {
+        PersistanceManager.Instance.SetBestScore(m_Points);
         m_GameOver = true;
         GameOverText.SetActive(true);
     }
