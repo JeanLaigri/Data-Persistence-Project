@@ -101,6 +101,8 @@ public class PersistanceManager : MonoBehaviour
 
             bestName = data.username;
             bestScore = data.bestScore;
+            if (!string.IsNullOrEmpty(bestName))
+                nameField.text = bestName;
         }
     }
 }
